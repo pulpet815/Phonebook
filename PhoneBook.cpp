@@ -4,9 +4,11 @@
 #include <vector>
 #include <sstream>
 #include "headers/person.h"
+#include "headers/vectorOperations.h"
 
 using namespace std;
 using namespace person;
+using namespace vectorOperations;
 
 string fileName = "phoneBook.txt";
 
@@ -22,19 +24,6 @@ void saveToFile(PersonFriend newFriend)
     << newFriend.phoneNumber << endl;
 
     file.close();
-}
-
-vector <string> addDataToVector(string dataToSplit)
-{
-    vector <string> vectorWithData;
-    string singleData;
-
-    stringstream myStream(dataToSplit);
-    while(getline(myStream, singleData, '|'))
-    {
-        vectorWithData.push_back(singleData);
-    }
-    return vectorWithData;
 }
 
 void readFromFileIfExist(vector <PersonFriend> &friends)
