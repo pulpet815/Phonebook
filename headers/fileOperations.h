@@ -11,17 +11,21 @@ namespace fileOperation
 {
     string fileName = "phoneBook.txt";
 
-    void saveToFile(PersonFriend newFriend)
+    void saveSinglePersonToFile(PersonFriend newFriend, fstream &file)
     {
-        fstream file;
-        file.open(fileName, ios::out | ios::app);
         file << newFriend.id << "|"
         << newFriend.name << "|"
         << newFriend.surname << "|"
         << newFriend.email << "|"
         << newFriend.address << "|"
         << newFriend.phoneNumber << endl;
+    }
 
+    void saveToFile(PersonFriend newFriend)
+    {
+        fstream file;
+        file.open(fileName, ios::out | ios::app);
+        saveSinglePersonToFile(newFriend, file);
         file.close();
     }
 
