@@ -6,19 +6,13 @@
 #include "headers/person.h"
 #include "headers/vectorOperations.h"
 #include "headers/fileOperations.h"
+#include "headers/userInput.h"
 
 using namespace std;
 using namespace person;
 using namespace vectorOperations;
 using namespace fileOperation;
-
-string useGetline()
-{
-    string variable;
-    cin.sync();
-    getline(cin, variable);
-    return variable;
-}
+using namespace userInput;
 
 string searchForNextHighestID(vector <PersonFriend> friends)
 {
@@ -88,32 +82,6 @@ void showAllFriends(vector <PersonFriend> &friends)
     for(size_t i = 0; i < friends.size(); i++)
     {
         showOneFriend(friends[i]);
-    }
-}
-
-int getIntInput()
-{
-    string userInput;
-    while(1)
-    {
-        userInput = useGetline();
-
-        if (userInput.length() != 1)
-        {
-            cout << "Nieoczekiwana wartosc, sprobuj ponownie." << endl;
-            continue;
-        }
-        else
-        {
-            if (isdigit(userInput[0]))
-            {
-                return stoi(userInput);
-            }
-            else
-            {
-                cout << "To nie jest liczba, sprobuj ponownie." << endl;
-            }
-        }
     }
 }
 
